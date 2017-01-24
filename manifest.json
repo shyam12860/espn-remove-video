@@ -1,8 +1,16 @@
 {
-	"manifest_version": 1,
+	"manifest_version": 2,
 	"name": "ESPNFC video blocker",
 	"description": "Remove all the annoying videos that get in the way of articles in espnfc",
 	"version": "1.0",
 
-	"permissions": ["tabs", "activeTab"]
+	"web_accessible_resources": ["jquery.livequery.min.js","videohide.js"],
+
+	"content_scripts": [
+		{
+			"matches": ["*://*.espnfcasia.com/*", "*://espnfcasia.com/*", "*://*.espnfc.com/*", "*://espnfc.com/*"],
+			"js": ["contentscript.js"],
+			"all_frames": true
+		}
+	]
 }
